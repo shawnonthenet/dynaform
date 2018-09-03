@@ -19,10 +19,10 @@ end
 Add the following javascript to your app.js
 
 ```
-var el = document.getElementByClassName('dynaform-link-to-add');
+var el = document.getElementBysClassName('dynaform-link-to-add');
 el.onclick = function(e){
   e.preventDefault()
-  var el = document.getElementByClassName('dynaform-link-to-add');
+  var el = e.target
   let time = new Date().getTime()
   let template = el.getAttribute('data-template')
   let target = el.getAttribute('data-target')

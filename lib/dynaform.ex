@@ -16,9 +16,9 @@ defmodule Dynaform do
     :world
   end
 
-  def link_to_add(link_text, changeset, template, target_id) do
+  def link_to_add(link_text, changeset, view, template, target_id) do
     form = Phoenix.HTML.FormData.to_form(changeset, [])
-    fields = render_to_string(__MODULE__, template, f: form)
-    link link_text, to: "#", class: "dynaform-link-to-add", data: [target: target_id, template: fields]
+    fields = Phoenix.View.render_to_string(view, template, f: form)
+    Phoenix.HTML.Link.link link_text, to: "#", class: "dynaform-link-to-add", data: [target: target_id, template: fields]
   end
 end
